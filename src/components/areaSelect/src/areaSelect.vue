@@ -6,6 +6,20 @@
     :select-field="selectField"
     @handleSelected="handleProvincesSelected"
   ></Select>
+  <Select
+   v-if="isSelecedCictiesShow"
+    :data="state.cicties"
+    :default-title="defaultTitle"
+    :select-field="selectField"
+    @handleSelected="handleCictiesSelected"
+  ></Select>
+  <Select
+   v-if="isSelecedCountiesShow"
+    :data="state.counties"
+    :default-title="defaultTitle"
+    :select-field="selectField"
+    @handleSelected="handleCountiesSelected"
+  ></Select>
 </template>
 
 <script lang="ts" setup>
@@ -30,6 +44,8 @@ const state = reactive({
 })
 
 const isSelecedProvinceShow = computed(() => !!provinces)
+const isSelecedCictiesShow = computed(() => !!state.cicties)
+const isSelecedCountiesShow = computed(() => !!state.counties)
 const emits = defineEmits(['handleSelected'])
 
 function formatData(data: any[]) {
@@ -54,6 +70,37 @@ const handleProvincesSelected = (value: string) => {
   const [code, name] = value.split(':')
   state.cicties = provinces[name][selectField.children]
   state.selectedInfo.province = {
+    code,
+    name
+  } as any
+  emits('handleSelected', toRaw(state.selectedInfo))
+}
+const handleCictiesSelected = (value: string) => {
+  if(!value) {
+    state.counties = null,
+    state.selectedInfo.city = null
+    state.selectedInfo.country = null
+    emits('handleSelected', toRaw(state.selectedInfo))
+    return
+  }
+  const [code, name] = value.split(':')
+  console.log((state.cicties as any )[name]);
+
+  state.counties = (state.cicties as any )[name][selectField.children]
+  state.selectedInfo.country = {
+    code,
+    name
+  } as any
+  emits('handleSelected', toRaw(state.selectedInfo))
+}
+const handleCountiesSelected = (value: string) => {
+  if(!value) {
+    state.selectedInfo.country = null
+    emits('handleSelected', toRaw(state.selectedInfo))
+    return
+  }
+  const [code, name] = value.split(':')
+  state.selectedInfo.city = {
     code,
     name
   } as any
