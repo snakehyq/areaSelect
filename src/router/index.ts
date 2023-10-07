@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import City from '../views/City.vue'
+import City from '../views/City/City.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
