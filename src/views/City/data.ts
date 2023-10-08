@@ -1,3 +1,52 @@
+/**
+ * 1. 数据的分析
+ *  省
+ *    省信息
+ *      市集合
+ *        市信息
+ *          区县集合
+ *            区县信息
+ * 2、响应式数据
+ *  provinces ?
+ *  cities
+ *  counties
+ *  province
+ *  city
+ *  country
+ *
+ * 3、视图
+ *  省选择器 select show ? provinces
+ *   空
+ *    【省集合】
+ *  市选择器 select show ?cities ? province
+ *    空
+ *    【市集合】
+ *  区县选择器 select show ? counties ? city
+ *    【区县集合】
+ * 4、渲染逻辑
+ * Province selector => [省集合]
+ *  handleSelect => code/name => province 四川 => cities
+ *      data[name].cities
+ *        data[name].cities[cityName].counties[countyName].code/name
+ *
+ * 策略形数据：优点，可以直接通过对象.拿到想要的数据，不需要遍历数组去找想要的数据，比通过下标拿值更加稳定
+ * {
+ *    '广东省': {
+ *              code,
+ *              name,
+ *              children: {
+ *                  '广州市': {
+ *                        code,
+ *                        name,
+ *                  children: {
+ *
+ *                      }
+ *                   }
+ *                }
+ *        }
+ *  }
+*/
+
 export const options = [{
   code: '11',
   name: '北京市',
