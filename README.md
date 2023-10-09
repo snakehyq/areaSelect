@@ -27,15 +27,15 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### 省选择器
 
-![Snipaste_2023-10-08_18-23-22](C:\Users\Administrator\Pictures\Screenshots\Snipaste_2023-10-08_18-23-22.png)
+![Snipaste_2023-10-08_18-23-22](https://github.com/snakehyq/areaSelect/blob/master/public/static/img/Snipaste_2023-10-08_18-23-22.png)
 
 #### 市选择器
 
-![Snipaste_2023-10-08_18-23-34](C:\Users\Administrator\Pictures\Screenshots\Snipaste_2023-10-08_18-23-34.png)
+![Snipaste_2023-10-08_18-23-34](https://github.com/snakehyq/areaSelect/blob/master/public/static/img/Snipaste_2023-10-08_18-23-34.png)
 
 #### 区县选择器
 
-![Snipaste_2023-10-08_18-23-49](C:\Users\Administrator\Pictures\Screenshots\Snipaste_2023-10-08_18-23-49.png)
+![Snipaste_2023-10-08_18-23-49](https://github.com/snakehyq/areaSelect/blob/master/public/static/img/\Snipaste_2023-10-08_18-23-49.png)
 
 #### 属性
 
