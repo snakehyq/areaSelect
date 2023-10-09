@@ -50,12 +50,15 @@
 export const options = [{
   code: '11',
   name: '北京市',
+  disabled: true,
   children: [{
     code: '1101',
     name: '市辖区',
+    disabled: true,
     children: [{
       code: '110101',
-      name: '东城区'
+      name: '东城区',
+      disabled: true
     }, {
       code: '110102',
       name: '西城区'
@@ -106,6 +109,7 @@ export const options = [{
 }, {
   code: '12',
   name: '天津市',
+  disabled: true,
   children: [{
     code: '1201',
     name: '市辖区',
@@ -162,12 +166,14 @@ export const options = [{
 }, {
   code: '13',
   name: '河北省',
+  disabled: true,
   children: [{
     code: '1301',
     name: '石家庄市',
     children: [{
       code: '130102',
-      name: '长安区'
+      name: '长安区',
+      disabled: true
     }, {
       code: '130104',
       name: '桥西区'
@@ -780,6 +786,7 @@ export const options = [{
 }, {
   code: '14',
   name: '山西省',
+  disabled: true,
   children: [{
     code: '1401',
     name: '太原市',
@@ -791,7 +798,8 @@ export const options = [{
       name: '迎泽区'
     }, {
       code: '140107',
-      name: '杏花岭区'
+      name: '杏花岭区',
+      disabled: true
     }, {
       code: '140108',
       name: '尖草坪区'
@@ -1194,6 +1202,7 @@ export const options = [{
 }, {
   code: '15',
   name: '内蒙古自治区',
+  disabled: true,
   children: [{
     code: '1501',
     name: '呼和浩特市',
@@ -1570,6 +1579,7 @@ export const options = [{
 }, {
   code: '21',
   name: '辽宁省',
+  disabled: true,
   children: [{
     code: '2101',
     name: '沈阳市',
@@ -1930,6 +1940,7 @@ export const options = [{
 }, {
   code: '22',
   name: '吉林省',
+  disabled: true,
   children: [{
     code: '2201',
     name: '长春市',
@@ -2177,6 +2188,7 @@ export const options = [{
 }, {
   code: '23',
   name: '黑龙江省',
+  disabled: true,
   children: [{
     code: '2301',
     name: '哈尔滨市',
@@ -2614,6 +2626,7 @@ export const options = [{
 }, {
   code: '31',
   name: '上海市',
+  disabled: true,
   children: [{
     code: '3101',
     name: '市辖区',
@@ -2673,9 +2686,11 @@ export const options = [{
   children: [{
     code: '3201',
     name: '南京市',
+    disabled: true,
     children: [{
       code: '320102',
-      name: '玄武区'
+      name: '玄武区',
+      disabled: true
     }, {
       code: '320104',
       name: '秦淮区'
