@@ -4,6 +4,8 @@
     :data="provinces"
     :default-title="defaultTitle"
     :select-field="selectField"
+    id="provinceId"
+    :clearable="clearable"
     @handleSelected="handleProvincesSelected"
   ></Select>
   <Select
@@ -11,6 +13,8 @@
     :data="state.cicties"
     :default-title="defaultTitle"
     :select-field="selectField"
+    :clearable="clearable"
+    id="cityId"
     @handleSelected="handleCictiesSelected"
   ></Select>
   <Select
@@ -18,6 +22,8 @@
     :data="state.counties"
     :default-title="defaultTitle"
     :select-field="selectField"
+    :clearable="clearable"
+    id="countryId"
     @handleSelected="handleCountiesSelected"
   ></Select>
 </template>
@@ -28,7 +34,7 @@
 import { reactive, computed, toRaw } from 'vue'
 import { Select } from '@/base-ui/Select'
 import { basicProps } from '../config/props'
-const { data, selectField, defaultTitle } = defineProps(basicProps)
+const { data, selectField, defaultTitle, clearable } = defineProps(basicProps)
 // 策略性数据
 const provinces = formatData(data)
 
@@ -87,7 +93,7 @@ const handleCictiesSelected = (value: string) => {
   console.log((state.cicties as any )[name]);
 
   state.counties = (state.cicties as any )[name][selectField.children]
-  state.selectedInfo.country = {
+  state.selectedInfo.city = {
     code,
     name
   } as any
@@ -100,7 +106,7 @@ const handleCountiesSelected = (value: string) => {
     return
   }
   const [code, name] = value.split(':')
-  state.selectedInfo.city = {
+  state.selectedInfo.country = {
     code,
     name
   } as any

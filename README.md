@@ -35,15 +35,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### 区县选择器
 
-![Snipaste_2023-10-08_18-23-49](https://github.com/snakehyq/areaSelect/blob/master/public/static/img/\Snipaste_2023-10-08_18-23-49.png)
+![Snipaste_2023-10-08_18-23-49](https://github.com/snakehyq/areaSelect/blob/master/public/static/img/Snipaste_2023-10-08_18-23-49.png)
 
 #### 属性
 
-| 属性名        | 类型   | 默认值                                            | 说明                   |
-| ------------- | ------ | ------------------------------------------------- | ---------------------- |
-| data          | Array  |                                                   | 省市区数据             |
-| default-title | String | Default                                           | 未选择文本             |
-| select-field  | Object | { code: 'code',name: 'name',children:'children' } | 渲染嵌套数据的配置选项 |
+| 属性名        | 类型    | 默认值                                            | 说明                   |
+| ------------- | ------- | ------------------------------------------------- | ---------------------- |
+| data          | Array   |                                                   | 省市区数据             |
+| default-title | String  | Default                                           | 未选择文本             |
+| select-field  | Object  | { code: 'code',name: 'name',children:'children' } | 渲染嵌套数据的配置选项 |
+| clearable     | Boolean | false                                             | 是否支持清空选项       |
 
 #### select-field 参数说明
 
@@ -72,7 +73,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```js
 <template>
   <div class="city">
-    <area-select :data="options" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
+    <area-select :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
   </div>
 </template>
 ```
@@ -83,6 +84,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 import { areaSelect } from '@/components/areaSelect'
 import { options } from './data'
 const defaultTitle = '请选择'
+const clearable = true
 const fields: {
   name: string,
   code: string | number,
@@ -104,5 +106,33 @@ const handleSelected = (value: any) => {
   margin-top: 150px;
 }
 </style>
+```
+
+#### 禁用选项
+
+通过在数据源中设置 `disabled` 字段来声明该选项是禁用的
+
+```js
+[{
+  code: '11',
+  name: '北京市',
+  disabled: true,
+  children: [{
+    code: '1101',
+    name: '市辖区',
+    disabled: true,
+    children: [{
+      code: '110101',
+      name: '东城区',
+      disabled: true
+    }, {
+      code: '110116',
+      name: '怀柔区'
+    }, {
+      code: '110117',
+      name: '平谷区'
+    }]
+  }]
+}]
 ```
 

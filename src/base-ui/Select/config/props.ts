@@ -12,9 +12,18 @@ export const basicProps = {
     type: Object as PropType<IData>,
     default: () => ({})
   },
+  clearable: {
+    type: Boolean as PropType<boolean>,
+    default: false
+  },
   defaultTitle: {
-    type: String,
+    type: String as PropType<string>,
     default: 'Default'
+  },
+  id: {
+    type: String as PropType<string>,
+    require: true,
+    default: 'id'
   },
   selectField: {
     type: Object as PropType<ISelectField>,

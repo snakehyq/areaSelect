@@ -1,12 +1,13 @@
 <template>
   <div class="city">
-    <area-select :data="options" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
+    <area-select :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
   </div>
 </template>
 <script lang="ts" setup>
 import { areaSelect } from '@/components/areaSelect'
 import { options } from './data'
 const defaultTitle = '请选择'
+const clearable = false
 const fields: {
   name: string,
   code: string | number,
@@ -23,6 +24,8 @@ const handleSelected = (value: any) => {
 
 <style lang="less" scoped>
 .city {
-  margin-top: 150px;
+    display: flex;
+    margin-top: 150px;
+    justify-content: center;
 }
 </style>

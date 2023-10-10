@@ -13,6 +13,10 @@ export const basicProps = {
     type: String,
     default: 'Default'
   },
+  clearable: {
+    type: Boolean as PropType<boolean>,
+    default: false
+  },
   selectField: {
     type: Object as PropType<ISelectField>,
     default: () => ({
