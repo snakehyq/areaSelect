@@ -9,7 +9,7 @@
         :key="index"
         :value="`${value[selectField.code]}:${value[selectField.name]}`"
       >
-        {{ key }}
+        {{ value[selectField.name] }}
       </option>
     </select>
     <div v-show="isClearable" class="clear" @click="handleClear">x</div>
@@ -19,24 +19,32 @@
 <script lang="ts" setup>
 /* eslint-disable */
 // eslint-disable-next-line vue/no-setup-props-destructure
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { basicProps } from "../config/props";
+import { useEchoData } from '../hooks'
 const props = defineProps(basicProps);
 const emits = defineEmits(["handleSelected"]);
-let selectedVal = ref('')
+let selectedVal = ref("");
+let selectHtml:HTMLSelectElement
+// 回显数据
+const { useFn }  = useEchoData(props.echoId, props.data)
+
+onMounted(() => {
+  selectHtml = document.getElementById(props.id) as HTMLSelectElement;
+  useFn(selectHtml)
+})
 // 是否支持清空选项
 const isClearable = computed(() => {
-  return selectedVal.value && props.clearable
-})
+  return selectedVal.value && props.clearable;
+});
 const handleSelected = (e: Event) => {
   const val = (e.target as HTMLSelectElement).value;
-  selectedVal.value = val
+  selectedVal.value = val;
   emits("handleSelected", val);
 };
 const handleClear = () => {
-  const selectHtml = document.getElementById(props.id) as HTMLSelectElement;
   selectHtml.options.selectedIndex = 0; //回到初始状态
-  emits("handleSelected", '');
+  emits("handleSelected", "");
 };
 </script>
 

@@ -45,6 +45,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 | default-title | String  | Default                                           | 未选择文本             |
 | select-field  | Object  | { code: 'code',name: 'name',children:'children' } | 渲染嵌套数据的配置选项 |
 | clearable     | Boolean | false                                             | 是否支持清空选项       |
+| v-model       | Array   |                                                   | 双向数据绑定           |
 
 #### select-field 参数说明
 
@@ -73,7 +74,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```js
 <template>
   <div class="city">
-    <area-select :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
+    <area-select v-model="areaSelectModel" :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
   </div>
 </template>
 ```
@@ -85,6 +86,7 @@ import { areaSelect } from '@/components/areaSelect'
 import { options } from './data'
 const defaultTitle = '请选择'
 const clearable = true
+const areaSelectModel = ref<number[]>()
 const fields: {
   name: string,
   code: string | number,

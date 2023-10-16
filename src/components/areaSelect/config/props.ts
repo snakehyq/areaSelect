@@ -5,6 +5,10 @@ interface ISelectField {
   children: string
 }
 export const basicProps = {
+  modelValue: {
+    type: Array as PropType<number[]>,
+    default: () => []
+  },
   data: {
     type: Array as PropType<any[]>,
     default: () => []

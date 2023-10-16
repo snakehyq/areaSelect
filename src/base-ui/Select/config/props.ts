@@ -4,10 +4,14 @@ interface ISelectField {
   code: string,
   children: string
 }
-interface IData {
+export interface IData {
   [propName: string] : any
 }
 export const basicProps = {
+  echoId: {
+    type: Number as PropType<number | undefined>,
+    require: true
+  },
   data: {
     type: Object as PropType<IData>,
     default: () => ({})

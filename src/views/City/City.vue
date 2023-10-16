@@ -1,13 +1,15 @@
 <template>
   <div class="city">
-    <area-select :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
+    <area-select v-model="areaSelectModel" :data="options" :clearable="clearable" :default-title="defaultTitle" :select-field="fields" @handleSelected="handleSelected"/>
   </div>
 </template>
 <script lang="ts" setup>
 import { areaSelect } from '@/components/areaSelect'
+import { ref } from 'vue'
 import { options } from './data'
 const defaultTitle = '请选择'
-const clearable = false
+const clearable = true
+const areaSelectModel = ref<number[]>()
 const fields: {
   name: string,
   code: string | number,
@@ -20,6 +22,7 @@ const fields: {
 const handleSelected = (value: any) => {
   console.log('value', value)
 }
+
 </script>
 
 <style lang="less" scoped>
