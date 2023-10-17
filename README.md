@@ -39,13 +39,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### 属性
 
-| 属性名        | 类型    | 默认值                                            | 说明                   |
-| ------------- | ------- | ------------------------------------------------- | ---------------------- |
-| data          | Array   |                                                   | 省市区数据             |
-| default-title | String  | Default                                           | 未选择文本             |
-| select-field  | Object  | { code: 'code',name: 'name',children:'children' } | 渲染嵌套数据的配置选项 |
-| clearable     | Boolean | false                                             | 是否支持清空选项       |
-| v-model       | Array   |                                                   | 双向数据绑定           |
+| 属性名        | 类型          | 默认值                                            | 说明                   |
+| ------------- | ------------- | ------------------------------------------------- | ---------------------- |
+| data          | Array         |                                                   | 省市区数据             |
+| default-title | String        | Default                                           | 未选择文本             |
+| select-field  | Object        | { code: 'code',name: 'name',children:'children' } | 渲染嵌套数据的配置选项 |
+| clearable     | Boolean       | false                                             | 是否支持清空选项       |
+| v-model       | Array[number] |                                                   | 双向数据绑定           |
 
 #### select-field 参数说明
 

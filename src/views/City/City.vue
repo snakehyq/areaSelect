@@ -5,7 +5,7 @@
 </template>
 <script lang="ts" setup>
 import { areaSelect } from '@/components/areaSelect'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { options } from './data'
 const defaultTitle = '请选择'
 const clearable = true
@@ -22,7 +22,9 @@ const fields: {
 const handleSelected = (value: any) => {
   console.log('value', value)
 }
-
+watch(areaSelectModel, (newVal) => {
+  console.log(newVal.value)
+})
 </script>
 
 <style lang="less" scoped>

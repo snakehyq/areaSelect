@@ -43,9 +43,17 @@ const handleSelected = (e: Event) => {
   emits("handleSelected", val);
 };
 const handleClear = () => {
-  selectHtml.options.selectedIndex = 0; //回到初始状态
+  resetSelected()
+  selectedVal.value = ''
   emits("handleSelected", "");
-};
+}
+ //回到初始状态
+const resetSelected = () => {
+  selectHtml.options.selectedIndex = 0;
+}
+defineExpose({
+  resetSelected
+})
 </script>
 
 <style lang="less" scoped>
